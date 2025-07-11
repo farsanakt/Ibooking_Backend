@@ -16,11 +16,12 @@ connectMonogoDb()
 app.use(express.json());
 app.use(cookieParser());
 app.use(
-    cors({
-        origin:"https://api.ibookingvenue.com",
-        credentials:true
-    })
-)
+  cors({
+    origin: ['http://localhost:8080', 'https://ibookingvenue.com'],
+    credentials: true,
+  })
+);
+
 app.use('/',auditoriumAuth_route)
 app.use('/',userAuth_route)
 app.use('/',auditorium_route)
