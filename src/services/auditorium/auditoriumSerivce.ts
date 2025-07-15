@@ -12,6 +12,7 @@ constructor(){
 }
 
       async  addVenue(data: any) {
+
         try {
 
           const existingVenue = await this.auditoriumRepositories.findVenueByName(data.name);
