@@ -12,6 +12,7 @@ constructor(){
 }
 
       async  addVenue(data: any) {
+
         try {
 
           const existingVenue = await this.auditoriumRepositories.findVenueByName(data.name);
@@ -21,8 +22,6 @@ constructor(){
           return {success:false,message:'This is venue is already existed'}
 
           }
-
-          console.log(data,'dddddddddddddddd')
 
           const savedVenue = await this.auditoriumRepositories.createVenue({
             name: data.name,

@@ -8,15 +8,28 @@ class AuditoriumController{
 
     async addVenue(req:Request,res:Response){
 
-        console.log('hemme')
-
         try {
 
             const data=req.body
 
-            console.log(data,'gooooooooooooooo')
+             if (typeof data.cities === "string") {
+                data.cities = JSON.parse(data.cities);
+                }
+                if (typeof data.timeSlots === "string") {
+                data.timeSlots = JSON.parse(data.timeSlots);
+                }
+                if (typeof data.amenities === "string") {
+                data.amenities = JSON.parse(data.amenities);
+                }
+                if (typeof data.tariff === "string") {
+                data.tariff = JSON.parse(data.tariff);
+                }
 
-            const response=await auditoriumService.addVenue(data)
+            const files = req.files as Express.Multer.File[]
+
+            const imageUrls = files.map((file) => (file as any).location)
+ 
+            const response = await auditoriumService.addVenue({ ...data, images: imageUrls });
 
             if(!response){
 
@@ -41,7 +54,8 @@ class AuditoriumController{
         try {
 
             const response=await auditoriumService.allVenues()
-
+               
+            console.log(response,'looppppp')
             if(response){
 
                 res.status(HttpStatus.CREATED).json(response)
