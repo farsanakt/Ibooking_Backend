@@ -12,4 +12,6 @@ userAuth_route.post('/registration',authController.userRegistration)
 userAuth_route.post('/signin',authController.login)
 
 
+
+
 export default userAuth_route
