@@ -22,6 +22,8 @@ constructor(){
 
           }
 
+          console.log(data,'dddddddddddddddd')
+
           const savedVenue = await this.auditoriumRepositories.createVenue({
             name: data.name,
             address: data.address,

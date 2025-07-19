@@ -8,9 +8,13 @@ class AuditoriumController{
 
     async addVenue(req:Request,res:Response){
 
+        console.log('hemme')
+
         try {
 
             const data=req.body
+
+            console.log(data,'gooooooooooooooo')
 
             const response=await auditoriumService.addVenue(data)
 
