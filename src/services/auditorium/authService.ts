@@ -16,7 +16,7 @@ export class AuthService{
 
     async userSignup(formData:any){
 
-        const {auditoriumName,ownerName,email,phone,password,confirmPassword}=formData
+        const {auditoriumName,ownerName,email,phone,password,confirmPassword,events,locations}=formData
 
         try {
 
@@ -41,7 +41,9 @@ export class AuthService{
                   ownerName:ownerName,
                   email: email,
                   password: password,
-                  role:'auditorium'
+                  role:'auditorium',
+                  events:events,
+                  locations:locations
 
                 })
 

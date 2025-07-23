@@ -20,6 +20,7 @@ export interface IVenue extends Document {
   address: string;
   phone: string;
   altPhone?: string;
+  
   email: string;
   pincode: string;
   cities: string[];

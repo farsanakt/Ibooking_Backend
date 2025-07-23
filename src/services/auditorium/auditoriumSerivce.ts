@@ -100,4 +100,21 @@ constructor(){
 
       }
 
+
+     async findAuditorium(event: string, place: string) {
+
+      try {
+      
+        const auditoriums = await this.auditoriumRepositories.findAuditorium(event, place);
+
+        return auditoriums;
+
+      } catch (error) {
+
+        throw error
+        
+      }
+    }
+
+
 }

@@ -9,6 +9,8 @@ export interface IAuditoriumUser extends Document {
   isBlocked: boolean;
   auditoriumName?: string;
   ownerName?: string;
+  events: string[];
+  locations: string[];
   
   phone?: string;
 }
@@ -52,9 +54,13 @@ const userSchema: Schema = new Schema({
   ownerName: {
     type: String
   },
+ events: {
+    type: [String]
+  },
 
-
-
+  locations: {
+    type: [String]
+  },
   phone: {
     type: String
   }

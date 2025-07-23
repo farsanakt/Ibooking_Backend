@@ -96,6 +96,35 @@ class AuditoriumController{
 
     }
 
+
+async findAuditorium(req: Request, res: Response) {
+  try {
+    const event = req.query.event as string
+    const place = req.query.place as string
+
+    console.log('Controller received:', { event, place });
+
+    
+    const response = await auditoriumService.findAuditorium(place, event)
+
+    if (response) {
+      res.status(200).json(response);
+      return
+    }
+
+     res.status(404).json({ message: 'No matching auditoriums found' });
+     return
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+}
+
+
+
+    
+
+
 }
 
 

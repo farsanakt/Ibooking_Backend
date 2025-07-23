@@ -13,4 +13,6 @@ auditorium_route.get('/allvenues',auditoriumController.allVEnues)
 
 auditorium_route.put('/updatevenues',auditoriumController.updateVenues)
 
+auditorium_route.get('/findauditorium',auditoriumController.findAuditorium)
+
 export default auditorium_route
